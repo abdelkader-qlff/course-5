@@ -29,3 +29,37 @@ int main() {
 }
 
 problem #2:
+#include <iostream>
+#include <string>
+using namespace std;
+enum enprimenotprime { Prime = 1, Notprime = 2 };
+int readnumber(string message) {
+	int number = 0;
+	do {
+		cout << message << endl;
+		cin >> number;
+	} while (number <= 0);
+	return number;
+}
+enprimenotprime choosegenre(int num) {
+	if (num < 2)
+		return Notprime;
+	for (int i = 2; i <= num / 2; i++) {
+		if (num % i == 0)
+			return Notprime;
+	}
+	return Prime;
+}
+void printprimenums() {
+	int N = readnumber("enter a positive number: ");
+	cout << "Prime number:\n";
+	for (int i = 1; i <= N; i++) {
+		if (choosegenre(i) == Prime)
+			cout << "\t" << i ;
+	}
+}
+int main() {
+	printprimenums();
+}
+
+problem #3:
